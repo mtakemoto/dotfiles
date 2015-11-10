@@ -27,6 +27,9 @@ filetype plugin indent on    " required
 
 " Tell vim that the background is dark
 set background=dark
+" Make sure color is set to 256 for airline
+set t_Co=256
+
 " Solarized color scheme
 try
   colorscheme solarized
@@ -51,6 +54,7 @@ set laststatus=2
 set number
 set showcmd
 set noshowmode
+set smartcase   "only search for uppercase chars when specified
 
 "Backup
 "----------------------------
