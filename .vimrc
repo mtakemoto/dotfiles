@@ -20,6 +20,8 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'justinmk/vim-syntax-extra'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -70,6 +72,14 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
   let g:airline_left_sep=''
   let g:airline_right_sep=''
+  let g:airline_extensions_whitespace_checks = ''
 endif
 
-
+"Syntastic Settings
+"----------------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
