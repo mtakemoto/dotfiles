@@ -1,6 +1,7 @@
 inoremap jk <ESC>
 map <Space> <Leader>
 map <Leader> <Plug>(easymotion-prefix)
+map <C-a> <ESC>ggVG
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -45,6 +46,7 @@ endtry
 set expandtab
 "Tabs equal 2 columns
 set tabstop=2
+"Enable code folding
 set shiftwidth=2
 set autoindent
 set smartindent
@@ -68,6 +70,7 @@ set noswapfile
 "----------------------------
 let g:airline_theme='wombat'
 
+"Remove special icons for portability
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
   let g:airline_left_sep=''
