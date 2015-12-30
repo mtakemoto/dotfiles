@@ -1,7 +1,21 @@
+"Key Remappings
+"--------------------------------------
 inoremap jk <ESC>
 map <Space> <Leader>
 map <Leader> <Plug>(easymotion-prefix)
 map <C-a> <ESC>ggVG
+
+"Map tab switching to double-tap on tab number
+noremap 11 1gt
+noremap 22 2gt
+noremap 33 3gt
+noremap 44 4gt
+noremap 55 5gt
+noremap 66 6gt
+noremap 77 7gt
+noremap 88 8gt
+noremap 99 9gt
+noremap 00 :tablast<cr>
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -23,6 +37,7 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
 Plugin 'justinmk/vim-syntax-extra'
+Plugin 'tpope/vim-surround'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
