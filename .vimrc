@@ -6,16 +6,16 @@ map <Leader> <Plug>(easymotion-prefix)
 map <C-a> <ESC>ggVG
 
 "Map tab switching to double-tap on tab number
-noremap 11 1gt
-noremap 22 2gt
-noremap 33 3gt
-noremap 44 4gt
-noremap 55 5gt
-noremap 66 6gt
-noremap 77 7gt
-noremap 88 8gt
-noremap 99 9gt
-noremap 00 :tablast<cr>
+noremap 1<leader> 1gt
+noremap 2<leader> 2gt
+noremap 3<leader> 3gt
+noremap 4<leader> 4gt
+noremap 5<leader> 5gt
+noremap 6<leader> 6gt
+noremap 7<leader> 7gt
+noremap 8<leader> 8gt
+noremap 9<leader> 9gt
+noremap 0<leader> :tablast<cr>
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -39,6 +39,13 @@ Plugin 'scrooloose/syntastic'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'tpope/vim-surround'
 
+"Syntax Support Plugins
+"---------------------------------
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'modess/vim-phpcolors'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -55,6 +62,8 @@ catch
   colorscheme default
 endtry
 
+" Set specific color schemes for different file types
+"
 "Formatting
 "--------------
 "Convert tabs to spaces
