@@ -54,6 +54,8 @@ filetype plugin indent on    " required
 set background=dark
 " Make sure color is set to 256 for airline
 set t_Co=256
+" Turn on syntax highlighting
+syntax on
 
 " Solarized color scheme
 try
