@@ -1,21 +1,22 @@
 "Key Remappings
 "--------------------------------------
 inoremap jk <ESC>
+syntax on
 map <Space> <Leader>
 map <Leader> <Plug>(easymotion-prefix)
 map <C-a> <ESC>ggVG
 
 "Map tab switching to double-tap on tab number
-noremap 1<leader> 1gt
-noremap 2<leader> 2gt
-noremap 3<leader> 3gt
-noremap 4<leader> 4gt
-noremap 5<leader> 5gt
-noremap 6<leader> 6gt
-noremap 7<leader> 7gt
-noremap 8<leader> 8gt
-noremap 9<leader> 9gt
-noremap 0<leader> :tablast<cr>
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -38,6 +39,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'tpope/vim-surround'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 "Syntax Support Plugins
 "---------------------------------
