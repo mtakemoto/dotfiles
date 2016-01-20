@@ -39,6 +39,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'tpope/vim-surround'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 "Syntax Support Plugins
 "---------------------------------
