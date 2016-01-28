@@ -46,7 +46,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 "---------------------------------
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'StanAngeloff/php.vim'
 Plugin 'modess/vim-phpcolors'
 
 " All of your Plugins must be added before the following line
