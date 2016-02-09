@@ -6,7 +6,7 @@ map <Space> <Leader>
 map <Leader> <Plug>(easymotion-prefix)
 map <C-a> <ESC>ggVG
 
-"Map tab switching to double-tap on tab number
+"Map tab switching to Space<tab#>
 noremap <leader>1 1gt
 noremap <leader>2 2gt
 noremap <leader>3 3gt
@@ -33,14 +33,16 @@ Plugin 'altercation/vim-colors-solarized'
 
 "Custom Plugins
 "-----------------------------------
-Plugin 'easymotion/vim-easymotion'
 Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/syntastic'
-Plugin 'justinmk/vim-syntax-extra'
-Plugin 'tpope/vim-surround'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'justinmk/vim-syntax-extra'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'
+Plugin 'Valloric/YouCompleteMe'
 
 "Syntax Support Plugins
 "---------------------------------
@@ -83,7 +85,7 @@ set laststatus=2
 "-----------------------------
 set number
 set showcmd
-set noshowmode
+set noshowmode  "hide because airline handles mode display"
 set smartcase   "only search for uppercase chars when specified
 
 "Backup
@@ -112,3 +114,11 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+"Ctrl-P Settings
+"----------------------------
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_show_hidden = 1
+
+"Auto-pairs Settings
+"----------------------------
