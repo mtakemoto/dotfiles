@@ -98,6 +98,11 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias sshcs='ssh takemom@linux-05.cs.wwu.edu -p 922'
+alias sshpi='ssh pi@192.168.1.7'
+
+# alias tmux to support 256 colors in vim
+alias tmux="TERM=screen-256color-bce tmux"
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -121,3 +126,4 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
