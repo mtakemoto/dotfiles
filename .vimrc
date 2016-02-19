@@ -68,6 +68,13 @@ catch
   colorscheme default
 endtry
 
+if &term =~ '256color'
+  " disable Background Color Erase (BCE) so that color schemes
+  " render properly when inside 256-color tmux and GNU screen.
+  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
+endif
+"
 " Set specific color schemes for different file types
 "
 "Formatting
@@ -95,6 +102,10 @@ set smartcase   "only search for uppercase chars when specified
 set nobackup
 set nowritebackup
 set noswapfile
+
+"Custom Commands
+"----------------------------
+command ReloadBG :set t_ut= <bar> :redraw!
 
 "Airline Customization
 "----------------------------
