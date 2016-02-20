@@ -1,22 +1,10 @@
-"Key Remappings
+"Important Key Remappings
 "--------------------------------------
 inoremap jk <ESC>
 syntax on
 map <Space> <Leader>
 map <Leader> <Plug>(easymotion-prefix)
 map <C-a> <ESC>ggVG
-
-"Map tab switching to Space<tab#>
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<cr>
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -49,6 +37,30 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'modess/vim-phpcolors'
+
+"More Key Remappings
+"--------------------------------
+"Map tab switching to Space<tab#>
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
+"Set key sequence for function keys
+set <F2>=<C-v><F2>
+set <F5>=<C-v><F5>
+"Quick new tab shortcut
+noremap <C-t> :tabnew
+"Clear trailing whitespace
+noremap <F2> :%s/\s\+$//
+"Reload vimrc
+noremap <F5> :so ~/.vimrc
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
