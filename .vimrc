@@ -31,6 +31,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-airline/vim-airline-themes'
 
 "Syntax Support Plugins
 "---------------------------------
