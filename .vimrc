@@ -57,11 +57,13 @@ noremap <leader>0 :tablast<cr>
 set <F2>=<C-v><F2>
 set <F5>=<C-v><F5>
 "Quick new tab shortcut
-noremap <C-t> :tabnew
+noremap <C-t> :tabnew<cr>
 "Clear trailing whitespace
 noremap <F2> :%s/\s\+$//
 "Reload vimrc
 noremap <F5> :so ~/.vimrc
+"Quick search for word under cursor with grep
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -145,6 +147,13 @@ let g:syntastic_check_on_wq = 0
 "----------------------------
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_show_hidden = 1
+
+"Use Silver Searcher (ag) if installed
+if executable('ag')
+  set grepparg = ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+endif
 
 "Auto-pairs Settings
 "----------------------------
