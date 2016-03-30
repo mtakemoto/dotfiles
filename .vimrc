@@ -150,7 +150,7 @@ let g:ctrlp_show_hidden = 1
 
 "Use Silver Searcher (ag) if installed
 if executable('ag')
-  set grepparg = ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 endif
