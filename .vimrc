@@ -26,6 +26,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'Raimondi/delimitMate'
+Plugin 'moll/vim-node'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
@@ -38,6 +39,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'modess/vim-phpcolors'
+Plugin 'jelera/vim-javascript-syntax'
 
 "More Key Remappings
 "--------------------------------
