@@ -19,7 +19,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 
-"Custom Plugins
+"General Plugins
 "-----------------------------------
 Plugin 'bling/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -41,6 +41,12 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'modess/vim-phpcolors'
 Plugin 'jelera/vim-javascript-syntax'
 
+"Vundle
+"---------------------------------
+"All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 "More Key Remappings
 "--------------------------------
 "Map tab switching to Space<tab#>
@@ -55,6 +61,8 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 
+"Shortcuts
+"--------------------------------
 "Set key sequence for function keys
 set <F2>=<C-v><F2>
 set <F5>=<C-v><F5>
@@ -64,13 +72,9 @@ noremap <C-t> :tabnew<cr>
 noremap <F2> :%s/\s\+$//
 "Reload vimrc
 noremap <F5> :so ~/.vimrc
-"Quick search for word under cursor with grep
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
+"Color Scheme
+"--------------------------------
 " Tell vim that the background is dark
 set background=dark
 " Make sure color is set to 256 for airline
@@ -109,10 +113,16 @@ set laststatus=2
 
 "UI
 "-----------------------------
+"enable tab numbers
 set number
+"helpful output of the command being entered
 set showcmd
-set noshowmode  "hide because airline handles mode display"
-set smartcase   "only search for uppercase chars when specified
+"hide because airline handles mode display
+set noshowmode
+"only search for uppercase chars when specified in search
+"use \c to force case sensitive
+set smartcase
+set ignorecase
 
 "Backup
 "----------------------------
@@ -123,6 +133,12 @@ set noswapfile
 "Custom Commands
 "----------------------------
 command ReloadBG :set t_ut= <bar> :redraw!
+
+"Filetype Settings
+"----------------------------
+autocmd BufNewFile,BufRead Gemfile* set filetype=ruby
+autocmd BufNewFile,BufRead Vagrantfile* set filetype=ruby
+autocmd BufNewFile,BufRead Puppetfile* set filetype=ruby
 
 "Airline Customization
 "----------------------------
