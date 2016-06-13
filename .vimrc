@@ -22,6 +22,7 @@ Plugin 'altercation/vim-colors-solarized'
 "General Plugins
 "-----------------------------------
 Plugin 'bling/vim-airline'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'justinmk/vim-syntax-extra'
@@ -163,6 +164,8 @@ let g:syntastic_check_on_wq = 0
 
 "Ctrl-P Settings
 "----------------------------
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_show_hidden = 1
 
