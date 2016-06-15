@@ -72,11 +72,14 @@ xterm*|rxvt*)
     ;;
 esac
 
-#Source git PS1 script
-if [ -f ~/.git-prompt.sh ]; then
-  source ~/.git-prompt.sh
-  PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\[\e[1;32m\]\u\[\e[1;37m\]@\[\e[1;36m\]\h::\[\e[1;31m\]\W\[\033[01;32m\]$(__git_ps1):\[\e[00m\]\$ '
+#Download git prompt script if not present
+if [ ! -f ~/.git-prompt.sh ]; then
+  curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh >/dev/null 2>/dev/null
 fi
+
+#Set PS1 to use git prompt
+source ~/.git-prompt.sh
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\[\e[1;32m\]\u\[\e[1;37m\]@\[\e[1;36m\]\h::\[\e[1;31m\]\W\[\033[01;32m\]$(__git_ps1):\[\e[00m\]\$ '
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
