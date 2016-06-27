@@ -50,6 +50,7 @@ filetype plugin indent on    " required
 
 "More Key Remappings
 "--------------------------------
+"-->Tab Navigation
 "Map tab switching to Space<tab#>
 noremap <leader>1 1gt
 noremap <leader>2 2gt
@@ -61,6 +62,17 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
+
+"-->Search Remappings
+"Disable search hightlighting until next search
+nnoremap <leader>l :nohlsearch<CR>
+"Toggle search highlighting
+nnoremap <leader>h :set hlsearch!<CR>
+"Toggle incremental search
+nnoremap <leader>i :set incsearch!<CR>
+"Enable/disable search hl on leaving and entering insert
+autocmd InsertEnter * :setlocal nohlsearch
+autocmd InsertLeave * :setlocal hlsearch
 
 "Shortcuts
 "--------------------------------
@@ -124,6 +136,9 @@ set noshowmode
 "use \c to force case sensitive
 set smartcase
 set ignorecase
+"Turn on incremental and highlight search by default
+set incsearch
+set hlsearch
 
 "Backup
 "----------------------------
@@ -144,7 +159,6 @@ autocmd BufNewFile,BufRead Puppetfile* set filetype=ruby
 "Airline Customization
 "----------------------------
 let g:airline_theme='wombat'
-
 "Remove special icons for portability
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -165,6 +179,7 @@ let g:syntastic_check_on_wq = 0
 "Ctrl-P Settings
 "----------------------------
 let g:ctrlp_map = '<c-p>'
+"Set MRU as the default mode on opening
 let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_show_hidden = 1
