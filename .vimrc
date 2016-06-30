@@ -21,18 +21,46 @@ Plugin 'altercation/vim-colors-solarized'
 
 "General Plugins
 "-----------------------------------
+"Close HTML tags on <C-_>
+Plugin 'alvan/vim-closetag'
+
+"Nicer & more informative status bar
 Plugin 'bling/vim-airline'
+
+"Seamless navigation between vim & tmux panes
 Plugin 'christoomey/vim-tmux-navigator'
+
+"Fuzzy finding files and recently used pane
 Plugin 'ctrlpvim/ctrlp.vim'
+
+"Magic navigation & position jumping
 Plugin 'easymotion/vim-easymotion'
-Plugin 'justinmk/vim-syntax-extra'
-Plugin 'Raimondi/delimitMate'
+
+"Better support for NodeJS
 Plugin 'moll/vim-node'
+
+"Bracket completion on enter, parentheses, etc
+Plugin 'rstacruz/vim-closer'
+
+"Syntax checker
 Plugin 'scrooloose/syntastic'
+
+"Completion for scripting languages 'endif' tags
+Plugin 'tpope/vim-endwise'
+
+"Git integration
 Plugin 'tpope/vim-fugitive'
+
+"Easily change surrounding text object pairs
 Plugin 'tpope/vim-surround'
+
+"Cleaner & easier to use file navigation
 Plugin 'tpope/vim-vinegar'
+
+"Code completion
 Plugin 'Valloric/YouCompleteMe'
+
+"Install most default airline themes for compatibility
 Plugin 'vim-airline/vim-airline-themes'
 
 "Syntax Support Plugins
@@ -70,7 +98,7 @@ nnoremap <leader>l :nohlsearch<CR>
 nnoremap <leader>h :set hlsearch!<CR>
 "Toggle incremental search
 nnoremap <leader>i :set incsearch!<CR>
-"Enable/disable search hl on leaving and entering insert
+"Enable/disable search hl on leaving and entering insert mode
 autocmd InsertEnter * :setlocal nohlsearch
 autocmd InsertLeave * :setlocal hlsearch
 
