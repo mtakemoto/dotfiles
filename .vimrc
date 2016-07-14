@@ -6,9 +6,22 @@ map <Space> <Leader>
 map <Leader> <Plug>(easymotion-prefix)
 map <C-a> <ESC>ggVG
 
+"Shortcuts
+"--------------------------------
+"Set key sequence for function keys
+set <F2>=<C-v><F2>
+map <F3> :set invpaste<cr>
+set <F5>=<C-v><F5>
+"Quick new tab shortcut
+noremap <C-t> :tabnew<cr>
+"Clear trailing whitespace
+noremap <F2> :%s/\s\+$//
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+"Vundle Begin
+"---------------------------------
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -17,7 +30,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
 
 "General Plugins
 "-----------------------------------
@@ -70,7 +82,11 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'modess/vim-phpcolors'
 Plugin 'jelera/vim-javascript-syntax'
 
-"Vundle
+"Color Schemes
+"---------------------------------
+Plugin 'altercation/vim-colors-solarized'
+
+"Vundle End
 "---------------------------------
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -101,18 +117,6 @@ nnoremap <leader>i :set incsearch!<CR>
 "Enable/disable search hl on leaving and entering insert mode
 autocmd InsertEnter * :setlocal nohlsearch
 autocmd InsertLeave * :setlocal hlsearch
-
-"Shortcuts
-"--------------------------------
-"Set key sequence for function keys
-set <F2>=<C-v><F2>
-set <F5>=<C-v><F5>
-"Quick new tab shortcut
-noremap <C-t> :tabnew<cr>
-"Clear trailing whitespace
-noremap <F2> :%s/\s\+$//
-"Reload vimrc
-noremap <F5> :so ~/.vimrc
 
 "Color Scheme
 "--------------------------------
