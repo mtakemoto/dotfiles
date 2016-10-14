@@ -152,6 +152,9 @@ if !exists('g:airline_symbols')
   let g:airline_right_sep=''
   let g:airline_extensions_whitespace_checks = ''
 endif
+set noshowmode
+"only search for uppercase chars when specified in search
+"use \c to force case sensitive
 
 "NERDTree
 "----------------------------
