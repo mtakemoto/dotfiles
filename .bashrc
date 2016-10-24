@@ -2,6 +2,13 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Add JuNest to path at startup
+export PATH=~/.local/share/junest/bin:$PATH
+export PATH=~/Applications/:$PATH
+
+# Fix unknown terminal error 
+export TERM=xterm
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
