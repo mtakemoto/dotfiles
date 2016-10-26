@@ -96,8 +96,8 @@ filetype plugin indent on    " required
 "--------------------------------
 "-->Tab Navigation
 "Map tab switching 
-nnoremap <C-Left>gT
-nnoremap <C-Right>gt
+nnoremap H gT
+nnoremap L gt
 
 "-->Search Remappings
 "Disable search hightlighting until next search
