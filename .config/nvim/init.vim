@@ -18,6 +18,19 @@ noremap <C-t> :tabnew<cr>
 "Clear trailing whitespace
 noremap <F2> :%s/\s\+$//
 
+"Formatting
+"--------------
+"Convert tabs to spaces
+set expandtab
+"Tabs equal 2 columns
+set tabstop=2
+"Enable code folding
+set shiftwidth=2
+set autoindent
+set smartindent
+set nowrap
+set laststatus=2
+
 "Plugins
 "--------------------------------
 call plug#begin('~/.vim/plugged')
