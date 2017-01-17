@@ -26,6 +26,8 @@ set expandtab
 set tabstop=2
 "Enable code folding
 set shiftwidth=2
+"Enable line numbers
+set number
 set autoindent
 set smartindent
 set nowrap
