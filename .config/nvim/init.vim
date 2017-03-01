@@ -4,7 +4,6 @@ inoremap jk <ESC>
 syntax on
 map <Space> <Leader>
 map <Leader> <Plug>(easymotion-prefix)
-map <C-a> <ESC>ggVG
 
 "Shortcuts
 "--------------------------------
