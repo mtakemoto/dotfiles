@@ -1,6 +1,6 @@
 Dotfiles Storage 
 ====================
-For keeping Unix program configurations consistent across devices
+For keeping Unix (and Windows) program configurations consistent across devices
 
 ## List of Programs
 * Vim
@@ -35,6 +35,9 @@ Working on transitioning completely to Neovim, but for now on machines that don'
 ```$ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm```
 Otherwise, tmux-resurrect (which saves sessions on logout/restart) won't work.  
 
+### Powershell
+1. Read https://blogs.technet.microsoft.com/heyscriptingguy/2012/05/21/understanding-the-six-powershell-profiles/ to configure for the desired user, host and environment options
+2. Use $Home\Documents\Profile.ps1 for current user, all hosts
 
 ## To Do
-Automate all of the above
+Automate Windows Powershell profile installation with script
