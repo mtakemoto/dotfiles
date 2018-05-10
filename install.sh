@@ -7,6 +7,7 @@ ln -sv "$(pwd)/.config/nvim" ~/.config/
 declare -a files=(".bashrc"
                   ".profile"
                   ".tmux.conf"
+		  ".zshrc"
                   )
 
 ## Symlink files to destination
