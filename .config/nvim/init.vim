@@ -1,7 +1,7 @@
 "Important Key Remappings
 "--------------------------------------
 inoremap jk <ESC>
-syntax on
+syntax enable 
 map <Space> <Leader>
 map <Leader> <Plug>(easymotion-prefix)
 
@@ -90,7 +90,7 @@ Plug 'arakashic/chromatica.nvim'
 
 "Color Schemes
 "---------------------------------
-Plug 'altercation/vim-colors-solarized'
+Plug 'mhartington/oceanic-next'
 
 call plug#end()
 
@@ -114,13 +114,20 @@ nnoremap <leader>i :set incsearch!<CR>
 autocmd InsertEnter * :setlocal nohlsearch
 autocmd InsertLeave * :setlocal hlsearch
 
-"Color Scheme
+"Color Scheme Configuration
 "--------------------------------
 set background=dark
 
-" Solarized color scheme
+" For Neovim 0.1.3 and 0.1.4
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+" Or if you have Neovim >= 0.1.5
+if (has("termguicolors"))
+ set termguicolors
+endif
+
 try
-  colorscheme solarized
+  colorscheme OceanicNext 
 catch
   colorscheme default
 endtry
@@ -150,7 +157,7 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 "Airline Customization
 "----------------------------
-let g:airline_theme='wombat'
+let g:airline_theme='oceanicnext'
 "Remove special icons for portability
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
