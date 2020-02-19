@@ -1,7 +1,7 @@
 "Important Key Remappings
 "--------------------------------------
 inoremap jk <ESC>
-syntax enable 
+syntax enable
 map <Space> <Leader>
 map <Leader> <Plug>(easymotion-prefix)
 
@@ -75,10 +75,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 "Code autocompletion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'artur-shaik/vim-javacomplete2'
-Plug 'zchee/deoplete-jedi'
-Plug 'Shougo/neco-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "Syntax Support Plugins
 "---------------------------------
@@ -87,6 +84,9 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'modess/vim-phpcolors'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'arakashic/chromatica.nvim'
+Plug 'yuezk/vim-js'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'PProvost/vim-ps1'
 
 "Color Schemes
 "---------------------------------
@@ -96,11 +96,15 @@ call plug#end()
 
 "------------------------------------------------
 
+"Default CoC Plugins
+"--------------------------------
+let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-tsserver', 'coc-eslint', 'coc-css']
+
 "More Key Remappings
 "--------------------------------
 "-->Tab Navigation
-"Map tab switching 
-nnoremap H gT 
+"Map tab switching
+nnoremap H gT
 nnoremap L gt
 
 "-->Search Remappings
@@ -113,6 +117,14 @@ nnoremap <leader>i :set incsearch!<CR>
 "Enable/disable search hl on leaving and entering insert mode
 autocmd InsertEnter * :setlocal nohlsearch
 autocmd InsertLeave * :setlocal hlsearch
+
+"-->Autocomplete mappings for CoC
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "Color Scheme Configuration
 "--------------------------------
@@ -127,7 +139,7 @@ if (has("termguicolors"))
 endif
 
 try
-  colorscheme OceanicNext 
+  colorscheme OceanicNext
 catch
   colorscheme default
 endtry
@@ -141,19 +153,13 @@ endif
 
 "Custom Commands
 "----------------------------
-command ReloadBG :set t_ut= <bar> :redraw!
+command! ReloadBG :set t_ut= <bar> :redraw!
 
 "Filetype Settings
 "----------------------------
 autocmd BufNewFile,BufRead Gemfile* set filetype=ruby
 autocmd BufNewFile,BufRead Vagrantfile* set filetype=ruby
 autocmd BufNewFile,BufRead Puppetfile* set filetype=ruby
-
-"Deoplete Settings
-"----------------------------
-let g:deoplete#enable_at_startup=1
-" deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 "Airline Customization
 "----------------------------
