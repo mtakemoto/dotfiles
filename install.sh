@@ -1,7 +1,13 @@
 #!/bin/bash
 
+##TODO: use a map to for file -> link for single ln with params
+##TODO: install ZSH
+##TODO: install Oh-my-zsh
+##TODO: install lambda-mod zsh theme
+##TODO: nvim plugin install
+
 ## Link NeoVim config first
-ln -sv "$(pwd)/.config/nvim" ~/.config/
+ln -svf "$(pwd)/.config/nvim" ~/.config/
 
 ## List of files to symlink in home dir
 declare -a files=(".bashrc"
