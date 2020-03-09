@@ -32,9 +32,17 @@ set smartindent
 set nowrap
 set laststatus=2
 
+"Vim Plug AutoInstall
+"-------------------------------
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 "Plugins
 "--------------------------------
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 "!--All Single Quotes--!
 "
@@ -148,7 +156,7 @@ if &term =~ '256color'
   " disable Background Color Erase (BCE) so that color schemes
   " render properly when inside 256-color tmux and GNU screen.
   " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-  set t_ut=
+  set t_ut=""
 endif
 
 "Custom Commands

@@ -9,6 +9,10 @@ export PATH=~/Applications/:$PATH
 # Fix unknown terminal error 
 export TERM=xterm
 
+# Fix for Windows/WSL default ugly folder highlighting in `ls`
+LS_COLORS='ow=01;36;40'
+export LS_COLORS
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
