@@ -11,11 +11,52 @@ map <Leader> <Plug>(easymotion-prefix)
 set <F2>=<C-v><F2>
 map <F3> :set invpaste<cr>
 set <F5>=<C-v><F5>
-map <F5>= :so $MYVIMRC<cr>
+
 "Quick new tab shortcut
 noremap <C-t> :tabnew<cr>
 "Clear trailing whitespace
 noremap <F2> :%s/\s\+$//
+"Edit vimrc in new split
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+"Reindent shortcut (cheap autoformat)
+nnoremap <leader>ri gg=G<C-o><C-o>
+
+"More Key Remappings
+"--------------------------------
+"-->Tab Navigation
+"Map tab switching
+nnoremap H gT
+nnoremap L gt
+
+"-->Search Remappings
+"Disable search hightlighting until next search
+nnoremap <leader>l :nohlsearch<CR>
+"Toggle search highlighting
+nnoremap <leader>h :set hlsearch!<CR>
+"Toggle incremental search
+nnoremap <leader>i :set incsearch!<CR>
+"Enable/disable search hl on leaving and entering insert mode
+autocmd InsertEnter * :setlocal nohlsearch
+autocmd InsertLeave * :setlocal hlsearch
+
+"-->Autocomplete mappings for CoC
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 "Formatting
 "--------------
@@ -31,6 +72,11 @@ set autoindent
 set smartindent
 set nowrap
 set laststatus=2
+
+"Searching for capital letters automatically  enables case-senstitive
+"Otherwise, ignore case.
+set ignorecase
+set smartcase
 
 "Vim Plug AutoInstall
 "-------------------------------
@@ -82,6 +128,10 @@ Plug 'tpope/vim-vinegar'
 "File system tree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
+"Code formatting via prettier (:Prettier)
+"post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
 "Code autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -108,31 +158,6 @@ call plug#end()
 "--------------------------------
 let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-tsserver', 'coc-eslint', 'coc-css']
 
-"More Key Remappings
-"--------------------------------
-"-->Tab Navigation
-"Map tab switching
-nnoremap H gT
-nnoremap L gt
-
-"-->Search Remappings
-"Disable search hightlighting until next search
-nnoremap <leader>l :nohlsearch<CR>
-"Toggle search highlighting
-nnoremap <leader>h :set hlsearch!<CR>
-"Toggle incremental search
-nnoremap <leader>i :set incsearch!<CR>
-"Enable/disable search hl on leaving and entering insert mode
-autocmd InsertEnter * :setlocal nohlsearch
-autocmd InsertLeave * :setlocal hlsearch
-
-"-->Autocomplete mappings for CoC
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "Color Scheme Configuration
 "--------------------------------
