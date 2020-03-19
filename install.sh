@@ -7,6 +7,7 @@
 ##TODO: install lambda-mod zsh theme
 ##TODO: after all of the above, then copy files so ZSH theme applies
 ##TODO: nvim plugin install
+##TODO: install powerline font (cascadia cove powerline patch from nerdfonts currently)
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
