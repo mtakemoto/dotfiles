@@ -181,8 +181,8 @@ let g:coc_global_extensions = [
  \'coc-omnisharp',
  \'coc-tsserver',
  \'coc-eslint',
+ \'coc-prettier'
  \'coc-css',
- \'coc-pairs',
  \]
 
 "Formatting
@@ -266,6 +266,10 @@ Plug 'Raimondi/delimitMate'
 
 "Custom swag icons
 Plug 'ryanoasis/vim-devicons'
+
+"Code Autoformat
+"post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 "Color Schemes
 "---------------------------------
@@ -400,3 +404,6 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 endif
+
+"Prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
