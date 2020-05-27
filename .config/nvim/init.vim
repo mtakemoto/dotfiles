@@ -181,7 +181,7 @@ let g:coc_global_extensions = [
  \'coc-omnisharp',
  \'coc-tsserver',
  \'coc-eslint',
- \'coc-prettier'
+ \'coc-prettier',
  \'coc-css',
  \]
 
@@ -262,7 +262,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 
 "Bracket autocompletion for the vscode experience
-Plug 'Raimondi/delimitMate'
+"Plug 'Raimondi/delimitMate'
 
 "Custom swag icons
 Plug 'ryanoasis/vim-devicons'
@@ -270,6 +270,9 @@ Plug 'ryanoasis/vim-devicons'
 "Code Autoformat
 "post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+"Switch between vim and tmux splits
+Plug 'christoomey/vim-tmux-navigator'
 
 "Color Schemes
 "---------------------------------
