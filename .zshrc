@@ -92,8 +92,27 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# General
+alias zshreload='source ~/.zshrc'
 alias vim="nvim"
 alias trp="trash-put"
 alias trl="trash-list"
 alias trr="trash-restore"
 alias tre="trash-empty"
+
+# Pacman
+alias pac='sudo pacman -S' #install
+alias pacu='sudo pacman -Syu' #update 
+alias pacr='sudo pacman -Rs' #remove
+alias pacs='sudo pacman -Ss' #search
+
+# Git
+alias g='git'
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit -m'
+alias gaa='git add -A'
+alias gau='git add -u'
+alias gnb='git checkout -b'
+alias gpnb='git push -u origin HEAD'
