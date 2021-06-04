@@ -28,3 +28,12 @@ for i in "${files[@]}"
 do
   ln -siv "$(pwd)/$i" $HOME
 done
+
+## Enable Git Credential Manager
+cho "Enable Git Credential Manager on WSL?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"; break;;
+        No ) exit;;
+    esac
+done
