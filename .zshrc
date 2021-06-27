@@ -5,13 +5,19 @@
 export ZSH=~/.oh-my-zsh
 
 # Android Studio Configuration
-export ANDROID_HOME=~/Library/Android/sdk 
-export PATH=${PATH}:${ANDROID_HOME}/tools 
+export ANDROID_HOME=~/Library/Android/sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+
+# QMK path
+export PATH=${PATH}:~/.local/bin
+
+# Google Go
+export PATH=$PATH:/usr/local/go/bin
 
 # Load node version manager
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Fix for Windows/WSL default ugly folder highlighting in `ls`
 LS_COLORS='ow=01;36;40'
@@ -107,7 +113,7 @@ alias tre="trash-empty"
 
 # Pacman
 alias pac='sudo pacman -S' #install
-alias pacu='sudo pacman -Syu' #update 
+alias pacu='sudo pacman -Syu' #update
 alias pacr='sudo pacman -Rs' #remove
 alias pacs='sudo pacman -Ss' #search
 

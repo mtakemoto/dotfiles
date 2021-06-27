@@ -30,6 +30,8 @@ nnoremap <leader>i :set incsearch!<CR>
 "Enable/disable search hl on leaving and entering insert mode
 autocmd InsertEnter * :setlocal nohlsearch
 autocmd InsertLeave * :setlocal hlsearch
+"Automatically remove trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
 
 "CoC Configuration
 "--------------------------------
@@ -252,7 +254,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 "Allow colored icons/text in nerdtree
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-"Easy vscode-style code commenting 
+"Easy vscode-style code commenting
 Plug 'tpope/vim-commentary'
 
 "Code autocompletion
@@ -273,6 +275,13 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 "Switch between vim and tmux splits
 Plug 'christoomey/vim-tmux-navigator'
+
+"Docker-compose
+Plug 'skanehira/docker-compose.vim', { 'for': 'yaml' }
+Plug 'skanehira/docker.vim', { 'for': 'yaml' }
+
+"Hex color highlighting
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 "Color Schemes
 "---------------------------------
@@ -410,3 +419,6 @@ endif
 
 "Prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+"Hexokinase Settings
+let g:Hexokinase_ftEnabled = ['css', 'html', 'javascript', 'scss', 'yaml', 'htmldjango' ]
