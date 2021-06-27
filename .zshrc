@@ -111,6 +111,9 @@ alias trl="trash-list"
 alias trr="trash-restore"
 alias tre="trash-empty"
 
+# For WSL
+alias explorer="explorer.exe"
+
 # Pacman
 alias pac='sudo pacman -S' #install
 alias pacu='sudo pacman -Syu' #update
