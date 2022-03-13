@@ -105,6 +105,7 @@ source $ZSH/oh-my-zsh.sh
 
 # General
 alias zshreload='source ~/.zshrc'
+alias zshedit='nvim ~/.zshrc'
 alias vim="nvim"
 alias trp="trash-put"
 alias trl="trash-list"
@@ -129,3 +130,10 @@ alias gaa='git add -A'
 alias gau='git add -u'
 alias gnb='git checkout -b'
 alias gpnb='git push -u origin HEAD'
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Dig
+alias da='dig A'
+alias dc='dig CNAME'
+alias dt='dig TXT'
+alias dmx='dig MX'
