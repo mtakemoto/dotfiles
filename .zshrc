@@ -137,3 +137,8 @@ alias da='dig A'
 alias dc='dig CNAME'
 alias dt='dig TXT'
 alias dmx='dig MX'
+# GoLang
+export GOROOT=/home/matt/.go
+export PATH=$GOROOT/bin:$PATH
+export GOPATH=/home/matt/go
+export PATH=$GOPATH/bin:$PATH
