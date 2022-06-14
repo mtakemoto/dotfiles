@@ -28,20 +28,13 @@ sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update
 
 ## Install packages
-# sudo apt-get install -y git zsh tmux tree httpie
 echo "${bold}Installing packages...${normal}"
 sudo aptitude install -y $PACKAGE_LIST
-
-## Install oh-my-zsh
-echo "${bold}Installing Oh-my-zsh...${bold}"
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 ## Link NeoVim config first
 echo "${bold}Linking config files...${bold}"
 mkdir -p ~/.config/nvim
 ln -svf "$DIR/.config/nvim/init.vim" ~/.config/nvim/init.vim
-
 
 ## Symlink files to destination
 ## Prompt for each if removal is needed
@@ -73,4 +66,16 @@ sudo mkdir $CUSTOM_FONT_DIR
 sudo cp "$DIR/fonts/*.ttf" $CUSTOM_FONT_DIR
 sudo fc-cache -fv
 
-echo ${bold}Done! :D${normal}"
+## Install oh-my-zsh
+## Note: since this switches your shell it has to be last
+echo "${bold}Installing Oh-my-zsh...${bold}"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+## Install node version manager
+## TODO: this is a fixed version and bad idea to call a script like this
+echo "${bold}Installing NVM and node.js@lts"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install --lts
+nvm use --lts
+
+echo "${bold}Done! :D${normal}"
