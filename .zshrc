@@ -104,8 +104,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # General
-alias zshreload='source ~/.zshrc'
-alias zshedit='nvim ~/.zshrc'
+alias zr='source ~/.zshrc'
+alias ze='nvim ~/.zshrc'
 alias vim="nvim"
 alias trp="trash-put"
 alias trl="trash-list"
@@ -137,3 +137,17 @@ alias da='dig A'
 alias dc='dig CNAME'
 alias dt='dig TXT'
 alias dmx='dig MX'
+
+# Kubectl
+alias k='kubectl'
+
+## Tools
+# Convert unix timestamps to something readable
+function tsconvert {
+  date -d "@$1"
+}
+
+# Decode urls to something human readable
+function urldecode {
+  echo $1 | sed -e "s/%\([0-9A-F][0-9A-F]\)/\\\\\x\1/g" | xargs -0 echo -e
+}
