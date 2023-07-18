@@ -70,7 +70,7 @@ ZSH_THEME="lambda-mod"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git dotenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,6 +94,15 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# Functions
+container-info() {
+  if which jq >/dev/null; then
+    docker image inspect --format '{{json .Config.Labels}}' $1 | jq
+  else
+    echo "Command requires jq to parse JSON.  Please install."
+  fi
+}
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -104,13 +113,17 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # General
-alias zshreload='source ~/.zshrc'
-alias zshedit='nvim ~/.zshrc'
+alias zr='source ~/.zshrc; echo "ZSH config reloaded"'
+alias ze='nvim ~/.zshrc'
 alias vim="nvim"
 alias trp="trash-put"
 alias trl="trash-list"
 alias trr="trash-restore"
 alias tre="trash-empty"
+
+# Docker
+alias dils="docker image ls"
+alias dci="container-info"
 
 # For WSL
 alias explorer="explorer.exe"
