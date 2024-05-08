@@ -72,11 +72,14 @@ export PATH=$GOPATH/bin:$PATH
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Suppress EOL % mark highlighting
+PROMPT_EOL_MARK=''
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git dotenv)
+plugins=(git dotenv encode64)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -163,6 +166,7 @@ function tsconvert {
 }
 
 # Decode urls to something human readable
-function urldecode {
-  echo $1 | sed -e "s/%\([0-9A-F][0-9A-F]\)/\\\\\x\1/g" | xargs -0 echo -e
+function urldecode() {
+  : "${*//+/ }"; echo -e "${_//%/\\x}";
 }
+
