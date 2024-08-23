@@ -43,7 +43,7 @@ Otherwise, tmux-resurrect (which saves sessions on logout/restart) won't work.
 
 If using Powershell 7...
 1. `echo $PSHOME`
-1. Will likely be in `C:\Program Files (x86)\Powershell\7`
+1. Will likely be in `~/Documents/Powershell`.  May have to create the folder if it doesn't exist.
 1. Copy/paste `Profile.ps1` there
 1. Run `Install-Module posh-git -Scope CurrentUser -Force -AllowClobber` (don't use Choco)
 1. ^ See https://github.com/dahlbyk/posh-git/issues/734
