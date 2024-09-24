@@ -18,7 +18,9 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export PATH=${PATH}:~/.local/bin
 
 # Google Go
-export PATH=$PATH:/usr/local/go/bin
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH:/local/go/bin
 
 # Load node version manager
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -27,12 +29,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 # Fix for Windows/WSL default ugly folder highlighting in `ls`
 LS_COLORS='ow=01;36;40'
 export LS_COLORS
-
-# GoLang
-export GOROOT=/home/matt/.go
-export PATH=$GOROOT/bin:$PATH
-export GOPATH=/home/matt/go
-export PATH=$GOPATH/bin:$PATH
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -112,6 +108,27 @@ container-info() {
   fi
 }
 
+function repo_diff {
+	if [ -z "$1" ]; then time_range="2 weeks ago"; else time_range="$1"; fi
+	if [ -z "$2" ]; then remote="origin"; else remote="$2"; fi
+
+	remote_exists=$(git remote | grep "$remote")
+	echo "$remote_exists"
+	if [ -z "$remote_exists" ]; then echo "Remote $remote doesn't exist.  Please specify using the 2nd parameter" && return -1; fi
+
+	for branch in $(git branch -r | grep -v '\->'); do
+		echo "Branch: $branch"
+      git log $branch --since="$time_range" -p ':(exclude)**/package-lock.json' ':(exclude)**/node_modules/**' ':(exclude)**/*.svg' ':(exclude)**/*.png' ':(exclude)**/*.jpg' ':(exclude)**/*.jpeg' ':(exclude)**/*.gif' ':(exclude)**/*.bmp' ':(exclude)**/*.tiff' ':(exclude)**/*.ico' ':(exclude)**/*.webp'
+	done
+}
+
+function gitReport {
+  isGitRepo=$(ls -a | grep ".git")
+  if [ -z $isGitRepo ]; then echo "Error: directory \"$(pwd)\" is not a git repo" && return -1; fi
+	git fetch --prune
+	repo_diff "$@"
+}
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -170,3 +187,7 @@ function urldecode() {
   : "${*//+/ }"; echo -e "${_//%/\\x}";
 }
 
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
